@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -20,8 +21,8 @@ public class Booking {
 
 	@Id
 	private Integer bookingId;
-	private Passenger passenger;
 	private LocalDate bookingDate;
+	@OneToMany
 	private List<Passenger> passengerList;
 	private Double totalCost;
 	private Flight flight;

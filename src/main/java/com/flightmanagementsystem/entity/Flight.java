@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -22,6 +23,7 @@ public class Flight {
 	private String flightName;
 	private Integer seatCapacity;
 	private Double fare; // cost per seat
+	@OneToMany
 	private List<Schedule> schedules;
 
 }

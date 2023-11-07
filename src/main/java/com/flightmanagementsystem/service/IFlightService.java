@@ -25,6 +25,6 @@ public interface IFlightService {
 	public List<Flight> viewBySourceDestinationAndDepartureDate(String source, String destination,
 			LocalDate departureDate);
 
-	public Flight updateFlight(FlightDTO flight);
+	public Flight updateFlight(Flight flight);
 
 }
