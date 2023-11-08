@@ -3,12 +3,11 @@ package com.flightmanagementsystem.service;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.flightmanagementsystem.dto.FlightDTO;
 import com.flightmanagementsystem.entity.Flight;
 
 public interface IFlightService {
 
-	public Flight addFlight(Flight flight);
+	public String addFlight(Flight flight);
 
 	public Flight viewByFlightId(Integer flightId);
 

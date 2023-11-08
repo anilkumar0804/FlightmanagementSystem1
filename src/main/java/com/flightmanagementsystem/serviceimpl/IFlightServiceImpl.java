@@ -8,11 +8,9 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.flightmanagementsystem.dto.FlightDTO;
 import com.flightmanagementsystem.entity.Flight;
 import com.flightmanagementsystem.entity.Schedule;
 import com.flightmanagementsystem.repository.FlightRepository;
-import com.flightmanagementsystem.repository.ScheduleRepository;
 import com.flightmanagementsystem.service.IFlightService;
 
 @Service
@@ -21,13 +19,11 @@ public class IFlightServiceImpl implements IFlightService {
 	@Autowired
 	FlightRepository flightRepository;
 
-	@Autowired
-	IScheduleServiceImpl service;
-
 	@Override
-	public Flight addFlight(Flight flight) {
+	public String addFlight(Flight flight) {
 
-		return flightRepository.save(flight);
+		flightRepository.save(flight);
+		return "Flight addded successfully";
 	}
 
 	@Override

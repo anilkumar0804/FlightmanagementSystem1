@@ -1,6 +1,7 @@
 package com.flightmanagementsystem.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
@@ -13,12 +14,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name="Passenger")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Passenger extends User {
+	
 	
 	private Long passengerUIN;
 	private String passengerName;
 	private Integer age;
+	
 	public Long getPassengerUIN() {
 		return passengerUIN;
 	}

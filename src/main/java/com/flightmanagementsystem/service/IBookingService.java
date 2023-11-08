@@ -4,23 +4,23 @@ import java.time.LocalDate;
 
 import java.util.List;
 
-import com.flightmanagementsystem.dto.BookingDTO;
+import com.flightmanagementsystem.entity.Booking;
 
 public interface IBookingService {
 
-	public BookingDTO addBooking(BookingDTO booking);
+	public String addBooking(Booking booking);
 
-	public BookingDTO cancelBooking(Integer bookingid);
+	public String cancelBooking(Integer bookingid);
 
-	public List<BookingDTO> viewBookings();
+	public List<Booking> viewBookings();
 
-	public List<BookingDTO> viewBookingByPassengerId(Integer passengerId);
+	public List<Booking> viewBookingByPassengerId(Long passengerId);
 
-	public BookingDTO viewBookingByBookingId(Integer bookingid);
+	public Booking viewBookingByBookingId(Integer bookingid);
 
-	public List<BookingDTO> viewBookingByDate(LocalDate bookingdate);
+	public List<Booking> viewBookingByDate(LocalDate bookingdate);
 
-	public List<BookingDTO> viewBookingsByFlightId(Integer flightid);
+	public List<Booking> viewBookingsByFlightId(Integer flightid);
 
-	public BookingDTO updateBooking(BookingDTO booking);
+	public Booking updateBooking(Booking booking);
 }

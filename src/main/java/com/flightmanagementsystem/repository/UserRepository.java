@@ -8,10 +8,6 @@ import com.flightmanagementsystem.entity.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-	User registerUser(User user);
-
-	User signIn(String userName, String password);
-
-	public String signOut();
-
+	
+	User findByUserName(String name);
 }
