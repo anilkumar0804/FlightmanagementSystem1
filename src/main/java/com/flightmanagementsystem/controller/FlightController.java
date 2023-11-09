@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.flightmanagementsystem.entity.Flight;
+<<<<<<< HEAD
 import com.flightmanagementsystem.exception.FlightManagementException;
+=======
+>>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 import com.flightmanagementsystem.serviceimpl.IFlightServiceImpl;
 
 @RestController
@@ -22,11 +25,16 @@ public class FlightController {
 
 	@Autowired
 	IFlightServiceImpl service;
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 	@PostMapping("/")
 	public String addFlight(@RequestBody Flight flight) {
 		return service.addFlight(flight);
 	}
+<<<<<<< HEAD
 
 	@GetMapping("/byid/{id}")
 	public Flight getByFlightId(@PathVariable("id") int flightId) throws FlightManagementException {
@@ -60,6 +68,33 @@ public class FlightController {
 		return service.viewBySourceDestinationAndDepartureDate(source, destination, date);
 	}
 
+=======
+	@GetMapping("/byid/{id}")
+	public Flight getByFlightId(@PathVariable("id") int flightId) {
+		return service.viewByFlightId(flightId);
+	}
+	@GetMapping("/flights")
+	public List<Flight> getAllFlights(){
+		return service.viewAllFlights();
+	}
+	@GetMapping("/byname")
+	public List<Flight> getByFlightName(){
+		return service.viewByFlightName();
+	}
+	@GetMapping("/byseat")
+	public List<Flight> getByFlightSeatCapacity(){
+		return service.viewByFlightSeatCapacity();
+	}
+	@GetMapping("/bysrcdest/{source}/{destination}")
+	public List<Flight> getBySourceDestination(@PathVariable("source") String source, @PathVariable("destination") String destination){
+		return service.viewBySourceDestination(source, destination);
+	}
+	@GetMapping("/bysrcdest/{source}/{destination}/{date}")
+	public List<Flight> getBySourceDestinationDate(@PathVariable("source") String source, @PathVariable("destination") String destination, 
+			@PathVariable("date") LocalDate date){
+		return service.viewBySourceDestinationAndDepartureDate(source, destination,date);
+	}
+>>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 	@PutMapping("/update")
 	public Flight updateFlight(@RequestBody Flight flight) {
 		return service.updateFlight(flight);

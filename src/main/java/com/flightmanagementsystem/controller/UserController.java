@@ -18,17 +18,28 @@ public class UserController {
 
 	@Autowired
 	IUserServiceImpl service;
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 	@PostMapping("/")
 	public UserDTO signUp(@RequestBody User user) {
 		return service.registerUser(user);
 	}
+<<<<<<< HEAD
 
 	@GetMapping("/signin/{username}/{password}")
 	public UserDTO logIn(@PathVariable("username") String userName, @PathVariable("password") String password) {
 		return service.signIn(userName, password);
 	}
 
+=======
+	@GetMapping("/signin/{username}/{password}")
+	public UserDTO logIn(@PathVariable("username") String userName,@PathVariable("password") String password ) {
+		return service.signIn(userName, password);
+	}
+>>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 	@GetMapping("/signout")
 	public String logOut() {
 		return service.signOut();

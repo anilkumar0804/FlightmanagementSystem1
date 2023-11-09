@@ -10,7 +10,10 @@ import org.springframework.stereotype.Service;
 
 import com.flightmanagementsystem.entity.Flight;
 import com.flightmanagementsystem.entity.Schedule;
+<<<<<<< HEAD
 import com.flightmanagementsystem.exception.FlightManagementException;
+=======
+>>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 import com.flightmanagementsystem.repository.FlightRepository;
 import com.flightmanagementsystem.service.IFlightService;
 
@@ -28,12 +31,18 @@ public class IFlightServiceImpl implements IFlightService {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Flight viewByFlightId(Integer flightId) throws FlightManagementException {
 
 		if(flightRepository.existsById(flightId)==false) {
 			throw new FlightManagementException("Flight does not exist");
 		}else
 		  return flightRepository.findById(flightId).get();
+=======
+	public Flight viewByFlightId(Integer flightId) {
+
+		return flightRepository.findById(flightId).get();
+>>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 	}
 
 	@Override
@@ -64,7 +73,11 @@ public class IFlightServiceImpl implements IFlightService {
 				.collect(Collectors.toList());
 
 	}
+<<<<<<< HEAD
    //method to check for matching source and destination of a flight
+=======
+
+>>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 	private boolean hasMatchingSourceDestination(Flight flight, String source, String destination) {
 		for (Schedule schedule : flight.getSchedules()) {
 			if (schedule.getSourceAirport().getAirportCity().equals(source)
@@ -81,7 +94,11 @@ public class IFlightServiceImpl implements IFlightService {
 		return flightRepository.findAll().stream().filter(e -> hasMatchingDepartureDate(e, date))
 				.collect(Collectors.toList());
 	}
+<<<<<<< HEAD
 	//method to check for matching departure date of a flight
+=======
+
+>>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 	private boolean hasMatchingDepartureDate(Flight flight, LocalDate date) {
 		for (Schedule schedule : flight.getSchedules()) {
 			if (schedule.getDepartureDate().toLocalDate().isEqual(date)) {
@@ -98,7 +115,11 @@ public class IFlightServiceImpl implements IFlightService {
 				.filter(e -> hasMatchingSourceDestinationAndDepartureDate(e, source, destination, departureDate))
 				.collect(Collectors.toList());
 	}
+<<<<<<< HEAD
 	//method to check for matching source,destination and departure date of a flight
+=======
+
+>>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 	private boolean hasMatchingSourceDestinationAndDepartureDate(Flight flight, String source, String destination,
 			LocalDate departureDate) {
 		for (Schedule schedule : flight.getSchedules()) {

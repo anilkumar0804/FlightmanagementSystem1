@@ -4,13 +4,20 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.flightmanagementsystem.entity.Flight;
+<<<<<<< HEAD
 import com.flightmanagementsystem.exception.FlightManagementException;
+=======
+>>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 
 public interface IFlightService {
 
 	public String addFlight(Flight flight);
 
+<<<<<<< HEAD
 	public Flight viewByFlightId(Integer flightId) throws FlightManagementException;
+=======
+	public Flight viewByFlightId(Integer flightId);
+>>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 
 	public List<Flight> viewAllFlights();
 
