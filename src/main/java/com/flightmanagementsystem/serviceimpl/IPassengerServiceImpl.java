@@ -1,21 +1,14 @@
 package com.flightmanagementsystem.serviceimpl;
 
 import java.util.List;
-<<<<<<< HEAD
 import java.util.stream.Collectors;
-=======
->>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-<<<<<<< HEAD
 import com.flightmanagementsystem.dto.PassengerDTO;
 import com.flightmanagementsystem.entity.Passenger;
 import com.flightmanagementsystem.exception.PassengerException;
-=======
-import com.flightmanagementsystem.entity.Passenger;
->>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 import com.flightmanagementsystem.repository.PassengerRepository;
 import com.flightmanagementsystem.service.IPassengerService;
 
@@ -34,7 +27,6 @@ public class IPassengerServiceImpl implements IPassengerService {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public List<PassengerDTO> viewAllPassenger() throws PassengerException {
 
 		List<PassengerDTO> passengerlist= passengerRepository.findAll().stream().map(e -> toPassengerDto(e)).collect(Collectors.toList());
@@ -77,26 +69,6 @@ public class IPassengerServiceImpl implements IPassengerService {
 		object.setUserRole(passenger.getUserRole());
 		return object;
 
-=======
-	public List<Passenger> viewAllPassenger() {
-
-		return passengerRepository.findAll();
-
-	}
-
-	@Override
-	public Passenger viewPassengerByUIN(Long uin) {
-
-		return passengerRepository.findById(uin).get();
-
-	}
-
-	@Override
-	public Passenger viewPassengerByMobileNo(Long contactNo) {
-
-		return passengerRepository.findAll().stream().filter(e -> e.getMobileNumber() == contactNo).findAny().get();
-		
->>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 	}
 
 }

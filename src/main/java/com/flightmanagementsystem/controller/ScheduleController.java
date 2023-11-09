@@ -49,14 +49,9 @@ public class ScheduleController {
 		return service.viewBySourceDestinationAndDepartureDate(source, destination, date);
 
 	}
-<<<<<<< HEAD
 
 	@GetMapping("/dep_time/{datetime}")
 	public List<Schedule> getByDepartureTime(@PathVariable("datetime") LocalDateTime datetime) {
-=======
-	@GetMapping("/dep_time/{datetime}")
-	public List<Schedule> getByDepartureTime(@PathVariable("datetime") LocalDateTime datetime){
->>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 		return service.viewByDepartureTime(datetime);
 	}
 }

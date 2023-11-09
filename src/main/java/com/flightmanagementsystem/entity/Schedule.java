@@ -1,9 +1,5 @@
 package com.flightmanagementsystem.entity;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;

@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.flightmanagementsystem.entity.Schedule;
-<<<<<<< HEAD
 import com.flightmanagementsystem.exception.ScheducleManagementException;
-=======
->>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 import com.flightmanagementsystem.repository.ScheduleRepository;
 import com.flightmanagementsystem.service.IScheduleService;
 
@@ -42,7 +39,6 @@ public class IScheduleServiceImpl implements IScheduleService {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public List<Schedule> viewSchedules() throws ScheducleManagementException {
 		
 		List<Schedule>allSchedules= scheduleRepository.findAll();
@@ -57,23 +53,10 @@ public class IScheduleServiceImpl implements IScheduleService {
 				e.getDestinationAirport().getAirportName().equals(destination)).collect(Collectors.toList());
 		if(viewBySandDlist.size()==0) {throw new ScheducleManagementException("invalid source and destination");}
 		else {return viewBySandDlist;}
-=======
-	public List<Schedule> viewSchedules() {
-		
-		return scheduleRepository.findAll();
-	}
-
-	@Override
-	public List<Schedule> viewBySourceAndDestination(String source, String destination) {
-		
-		return scheduleRepository.findAll().stream().filter(e->e.getSourceAirport().getAirportName().equals(source)&&
-				e.getDestinationAirport().getAirportName().equals(destination)).collect(Collectors.toList());
->>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 	}
 
 	@Override
 	public List<Schedule> viewBySourceDestinationAndDepartureDate(String source, String destination,
-<<<<<<< HEAD
 			LocalDate departureDate) throws ScheducleManagementException {
 		
 		List<Schedule> viewSandDdate= viewBySourceAndDestination(source, destination).stream().
@@ -88,20 +71,6 @@ public class IScheduleServiceImpl implements IScheduleService {
 		List<Schedule> viewByDtime= scheduleRepository.findAll().stream().filter(e->e.getDepartureDate().isEqual(dateTime)).collect(Collectors.toList());
 		if(viewByDtime.size()==0) {throw new ScheducleManagementException("Invalid departure time");}
 		else {return viewByDtime;}
-=======
-			LocalDate departureDate) {
-		
-		return viewBySourceAndDestination(source, destination).stream().
-		filter(e->e.getDepartureDate().toLocalDate().isEqual(departureDate)).collect(Collectors.toList());
-		
-	}
-
-	@Override
-	public List<Schedule> viewByDepartureTime(LocalDateTime dateTime) {
-		
-		return scheduleRepository.findAll().stream().filter(e->e.getDepartureDate().isEqual(dateTime)).collect(Collectors.toList());
-		
->>>>>>> 327e3558b30c14cfa0005236aaec72229c86d85d
 	}
 	
 	
