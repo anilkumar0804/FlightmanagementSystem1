@@ -4,7 +4,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.format.annotation.DateTimeFormat;
+=======
+>>>>>>> 084f402f86dbf6a45e4924da658c1c6c06aeee62
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,6 +54,7 @@ public class FlightController {
 
 	@GetMapping("/bysrcdest/{source}/{destination}")
 	public List<Flight> getBySourceDestination(@PathVariable("source") String source,
+<<<<<<< HEAD
 			@PathVariable("destination") String destination) throws FlightManagementException {
 		return service.viewBySourceDestination(source, destination);
 	}
@@ -66,6 +70,16 @@ public class FlightController {
 	@GetMapping("/bydate/{departuredate}")
 	public List<Flight> getByDepartureDate(@PathVariable("departuredate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate departureDate) throws FlightManagementException{
 		return service.viewByDepartureDate(departureDate);
+=======
+			@PathVariable("destination") String destination) {
+		return service.viewBySourceDestination(source, destination);
+	}
+
+	@GetMapping("/bysrcdest/{source}/{destination}/{date}")
+	public List<Flight> getBySourceDestinationDate(@PathVariable("source") String source,
+			@PathVariable("destination") String destination, @PathVariable("date") LocalDate date) {
+		return service.viewBySourceDestinationAndDepartureDate(source, destination, date);
+>>>>>>> 084f402f86dbf6a45e4924da658c1c6c06aeee62
 	}
 
 	@PutMapping("/update")

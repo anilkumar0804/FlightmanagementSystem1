@@ -1,5 +1,6 @@
 package com.flightmanagementsystem.exception;
 
+<<<<<<< HEAD
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -32,4 +33,8 @@ public class GlobalExceptionHandler {
 	public ResponseEntity<String> handleAirportManagementException(AirportManagementException airportException){
 		return new ResponseEntity<>(airportException.getMessage(),HttpStatus.NOT_FOUND);
 	}
+=======
+public class GlobalExceptionHandler {
+
+>>>>>>> 084f402f86dbf6a45e4924da658c1c6c06aeee62
 }

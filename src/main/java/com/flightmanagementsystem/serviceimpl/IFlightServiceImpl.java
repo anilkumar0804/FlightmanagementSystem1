@@ -30,10 +30,17 @@ public class IFlightServiceImpl implements IFlightService {
 	@Override
 	public Flight viewByFlightId(Integer flightId) throws FlightManagementException {
 
+<<<<<<< HEAD
 		if (flightRepository.existsById(flightId) == false) {
 			throw new FlightManagementException("Flight does not exist");
 		} else
 			return flightRepository.findById(flightId).get();
+=======
+		if(flightRepository.existsById(flightId)==false) {
+			throw new FlightManagementException("Flight does not exist");
+		}else
+		  return flightRepository.findById(flightId).get();
+>>>>>>> 084f402f86dbf6a45e4924da658c1c6c06aeee62
 	}
 
 	@Override
@@ -58,6 +65,7 @@ public class IFlightServiceImpl implements IFlightService {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<Flight> viewBySourceDestination(String source, String destination) throws FlightManagementException {
 
 		List<Flight> flightList = flightRepository.findAll().stream()
@@ -78,10 +86,44 @@ public class IFlightServiceImpl implements IFlightService {
 			throw new FlightManagementException("No flights available for given date.");
 		} else
 			return flightList;
+=======
+	public List<Flight> viewBySourceDestination(String source, String destination) {
+
+		return flightRepository.findAll().stream().filter(e -> hasMatchingSourceDestination(e, source, destination))
+				.collect(Collectors.toList());
+
+	}
+   //method to check for matching source and destination of a flight
+	private boolean hasMatchingSourceDestination(Flight flight, String source, String destination) {
+		for (Schedule schedule : flight.getSchedules()) {
+			if (schedule.getSourceAirport().getAirportCity().equals(source)
+					&& schedule.getDestinationAirport().getAirportCity().equals(destination)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public List<Flight> viewByDepartureDate(LocalDate date) {
+
+		return flightRepository.findAll().stream().filter(e -> hasMatchingDepartureDate(e, date))
+				.collect(Collectors.toList());
+	}
+	//method to check for matching departure date of a flight
+	private boolean hasMatchingDepartureDate(Flight flight, LocalDate date) {
+		for (Schedule schedule : flight.getSchedules()) {
+			if (schedule.getDepartureDate().toLocalDate().isEqual(date)) {
+				return true;
+			}
+		}
+		return false;
+>>>>>>> 084f402f86dbf6a45e4924da658c1c6c06aeee62
 	}
 
 	@Override
 	public List<Flight> viewBySourceDestinationAndDepartureDate(String source, String destination,
+<<<<<<< HEAD
 			LocalDate departureDate) throws FlightManagementException {
 
 		List<Flight> sourceDestinationList = viewBySourceDestination(source, destination);
@@ -92,6 +134,24 @@ public class IFlightServiceImpl implements IFlightService {
 			throw new FlightManagementException("No flights for given departure date. Please change departure date.");
 		} else
 			return departureDateList;
+=======
+			LocalDate departureDate) {
+		return flightRepository.findAll().stream()
+				.filter(e -> hasMatchingSourceDestinationAndDepartureDate(e, source, destination, departureDate))
+				.collect(Collectors.toList());
+	}
+	//method to check for matching source,destination and departure date of a flight
+	private boolean hasMatchingSourceDestinationAndDepartureDate(Flight flight, String source, String destination,
+			LocalDate departureDate) {
+		for (Schedule schedule : flight.getSchedules()) {
+			if (schedule.getSourceAirport().getAirportCity().equals(source)
+					&& schedule.getDestinationAirport().getAirportCity().equals(destination)
+					&& schedule.getDepartureDate().toLocalDate().isEqual(departureDate)) {
+				return true;
+			}
+		}
+		return false;
+>>>>>>> 084f402f86dbf6a45e4924da658c1c6c06aeee62
 	}
 
 	@Override
@@ -106,6 +166,7 @@ public class IFlightServiceImpl implements IFlightService {
 		return flight;
 	}
 
+<<<<<<< HEAD
 	// method to check for matching source and destination of a flight
 	private boolean hasMatchingSourceDestination(Flight flight, String source, String destination) {
 		for (Schedule schedule : flight.getSchedules()) {
@@ -127,4 +188,6 @@ public class IFlightServiceImpl implements IFlightService {
 		return false;
 	}
 
+=======
+>>>>>>> 084f402f86dbf6a45e4924da658c1c6c06aeee62
 }

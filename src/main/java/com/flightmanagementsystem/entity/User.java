@@ -5,9 +5,12 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+<<<<<<< HEAD
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+=======
+>>>>>>> 084f402f86dbf6a45e4924da658c1c6c06aeee62
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +26,7 @@ public class User {
 
 	@Id
 	protected Long userId;
+<<<<<<< HEAD
 	@NotBlank(message = "Username must not be null")
 	private String userName;
 	@NotBlank(message = "Password must not be null")
@@ -32,5 +36,11 @@ public class User {
 	@NotNull(message = "Mobile number must not be null")
 	protected Long mobileNumber;
 	@NotBlank(message = "User role must not be null")
+=======
+	protected String userName;
+	protected String password;
+	protected String email;
+	protected Long mobileNumber;
+>>>>>>> 084f402f86dbf6a45e4924da658c1c6c06aeee62
 	protected String userRole;
 }

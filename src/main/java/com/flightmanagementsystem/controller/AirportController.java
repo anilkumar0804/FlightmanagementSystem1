@@ -2,8 +2,11 @@ package com.flightmanagementsystem.controller;
 
 import java.util.List;
 
+<<<<<<< HEAD
 import javax.validation.Valid;
 
+=======
+>>>>>>> 084f402f86dbf6a45e4924da658c1c6c06aeee62
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,7 +27,11 @@ public class AirportController {
 	IAirportServiceImpl service;
 
 	@PostMapping("/")
+<<<<<<< HEAD
 	public String addAirport(@Valid @RequestBody Airport airport) {
+=======
+	public String addAirport(@RequestBody Airport airport) {
+>>>>>>> 084f402f86dbf6a45e4924da658c1c6c06aeee62
 		return service.addAirportDetails(airport);
 	}
 

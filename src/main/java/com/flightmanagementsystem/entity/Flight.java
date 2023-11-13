@@ -3,6 +3,7 @@ package com.flightmanagementsystem.entity;
 import java.util.List;
 
 import javax.persistence.Entity;
+<<<<<<< HEAD
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +13,11 @@ import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+=======
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+>>>>>>> 084f402f86dbf6a45e4924da658c1c6c06aeee62
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,6 +31,7 @@ import lombok.NoArgsConstructor;
 public class Flight {
 
 	@Id
+<<<<<<< HEAD
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer flightId;
 	@NotBlank(message = "Flight name must not be null")
@@ -37,6 +44,13 @@ public class Flight {
 	private Double fare;
 	@OneToMany
 	@Valid
+=======
+	private Integer flightId;
+	private String flightName;
+	private Integer seatCapacity;
+	private Double fare; // cost per seat
+	@OneToMany
+>>>>>>> 084f402f86dbf6a45e4924da658c1c6c06aeee62
 	private List<Schedule> schedules;
 
 }

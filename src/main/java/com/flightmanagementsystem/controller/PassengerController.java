@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.flightmanagementsystem.dto.PassengerDTO;
 import com.flightmanagementsystem.entity.Passenger;
+<<<<<<< HEAD
 import com.flightmanagementsystem.exception.PassengerManagementException;
+=======
+>>>>>>> 084f402f86dbf6a45e4924da658c1c6c06aeee62
 import com.flightmanagementsystem.service.IPassengerService;
 
 @RestController
@@ -28,17 +31,29 @@ public class PassengerController {
 	}
 
 	@GetMapping("/allpassenger")
+<<<<<<< HEAD
 	public List<PassengerDTO> getAllPassenger() throws PassengerManagementException {
+=======
+	public List<PassengerDTO> getAllPassenger() {
+>>>>>>> 084f402f86dbf6a45e4924da658c1c6c06aeee62
 		return service.viewAllPassenger();
 	}
 
 	@GetMapping("/byuin/{uin}")
+<<<<<<< HEAD
 	public PassengerDTO getByUin(@PathVariable("uin") long uin) throws PassengerManagementException {
+=======
+	public PassengerDTO getByUin(@PathVariable("uin") long uin) {
+>>>>>>> 084f402f86dbf6a45e4924da658c1c6c06aeee62
 		return service.viewPassengerByUIN(uin);
 	}
 
 	@GetMapping("/bymobile/{mob}")
+<<<<<<< HEAD
 	public PassengerDTO getByMobileNumber(@PathVariable("mob") long contactNo) throws PassengerManagementException {
+=======
+	public PassengerDTO getByMobileNumber(@PathVariable("mob") long contactNo) {
+>>>>>>> 084f402f86dbf6a45e4924da658c1c6c06aeee62
 		return service.viewPassengerByMobileNo(contactNo);
 	}
 }
