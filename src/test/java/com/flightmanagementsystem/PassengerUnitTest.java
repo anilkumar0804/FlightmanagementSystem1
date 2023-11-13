@@ -71,6 +71,5 @@ class PassengerUnitTest {
         verify(passengerRepository, times(1)).findByPassengerUIN(uin);
     }
 
-   
 }
 

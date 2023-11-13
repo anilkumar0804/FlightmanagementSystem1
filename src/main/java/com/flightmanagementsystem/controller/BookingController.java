@@ -14,13 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.flightmanagementsystem.dto.PassengerDTO;
 import com.flightmanagementsystem.entity.Booking;
-import com.flightmanagementsystem.entity.Passenger;
 import com.flightmanagementsystem.exception.BookingManagementException;
-import com.flightmanagementsystem.service.IPassengerService;
 import com.flightmanagementsystem.serviceimpl.IBookingServiceImpl;
-import com.flightmanagementsystem.serviceimpl.IPassengerServiceImpl;
 
 @RestController
 @RequestMapping("/booking")
@@ -35,8 +31,8 @@ public class BookingController {
 		return service.addBooking(booking);
 	}
 
-	@DeleteMapping("/delete")
-	public String deleteBooking(@RequestBody Integer bookingId) throws BookingManagementException {
+	@DeleteMapping("/delete/{bookingid}")
+	public String deleteBooking(@PathVariable("bookingid") Integer bookingId) throws BookingManagementException {
 		return service.cancelBooking(bookingId);
 	}
 

@@ -2,6 +2,8 @@ package com.flightmanagementsystem.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +26,7 @@ public class UserController {
 	IUserServiceImpl service;
 
 	@PostMapping("/signup")
-	public UserDTO signUp(@RequestBody User user)  {
+	public UserDTO signUp(@Valid @RequestBody User user)  {
 		return service.registerUser(user);
 	}
 
